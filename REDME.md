@@ -138,6 +138,12 @@ bibliotheque-app/
 ├── frontend/
 └── README.md
 
+## 🗄️ Diagramme ER
+
+![Diagramme entité-relation](./docs/diagramme-er.png)
+
+Le diagramme ci-dessus représente le modèle de données de la bibliothèque.
+
 👤 Auteur
 
 Ghostplayer89 — Akieni Academy Cohorte 2

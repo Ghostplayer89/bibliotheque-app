@@ -1,0 +1,11 @@
+# Dossiers
+node_modules/
+.env
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Fichiers de logs
+logs/
+*.log

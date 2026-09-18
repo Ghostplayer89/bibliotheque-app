@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de bord - Bibliothèque de M'pila</title>
+    
+    <!-- Polices Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icônes Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Styles CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <!-- ======================================================
+             SIDEBAR (Barre latérale de navigation)
+             ====================================================== -->
+        <aside class="sidebar">
+            
+            <!-- Logo -->
+            <div class="sidebar-logo">
+                <img src="assets/logo.png" alt="Bibliothèque de M'pila">
+            </div>
+            
+            <!-- Navigation -->
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item active">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Tableau de bord</span>
+                </a>
+                <a href="livres.html" class="nav-item">
+                    <i data-lucide="book-open"></i>
+                    <span>Livres</span>
+                </a>
+                <a href="adherents.html" class="nav-item">
+                    <i data-lucide="users"></i>
+                    <span>Adhérents</span>
+                </a>
+                <a href="emprunts.html" class="nav-item">
+                    <i data-lucide="bookmark"></i>
+                    <span>Emprunts</span>
+                </a>
+                <a href="auteurs.html" class="nav-item">
+                    <i data-lucide="pen-tool"></i>
+                    <span>Auteurs</span>
+                </a>
+            </nav>
+            
+            <!-- Pied de la sidebar -->
+            <div class="sidebar-footer">
+                <a href="#" class="nav-item">
+                    <i data-lucide="settings"></i>
+                    <span>Paramètres</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i data-lucide="log-out"></i>
+                    <span>Déconnexion</span>
+                </a>
+            </div>
+            
+        </aside>
+        
+        <!-- ======================================================
+             CONTENU PRINCIPAL
+             ====================================================== -->
+        <main class="main-content">
+            
+            <!-- HEADER (Barre du haut) -->
+            <header class="topbar">
+                
+                <!-- Barre de recherche -->
+                <div class="search-bar">
+                    <i data-lucide="search"></i>
+                    <input type="text" placeholder="Rechercher un livre, un adhérent, un auteur...">
+                </div>
+                
+                <!-- Profil admin -->
+                <div class="user-profile">
+                    <i data-lucide="bell"></i>
+                    <div class="user-info">
+                        <div class="avatar">A</div>
+                        <div>
+                            <div class="user-name">Admin</div>
+                            <div class="user-role">Administrateur</div>
+                        </div>
+                        <i data-lucide="chevron-down"></i>
+                    </div>
+                </div>
+                
+            </header>
+            
+            <!-- CONTENU DE LA PAGE -->
+            <div class="page-content">
+                
+                <!-- En-tête de page -->
+                <div class="page-header">
+                    <div>
+                        <h1>Tableau de bord</h1>
+                        <p class="page-subtitle">Vue d'ensemble de votre bibliothèque</p>
+                    </div>
+                </div>
+
+                <!-- Cartes de statistiques -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon stat-icon-primary">
+                            <i data-lucide="book-open"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="stat-livres">-</div>
+                            <div class="stat-label">Total des livres</div>
+                        </div>
+                    </div>
+    
+                    <div class="stat-card">
+                        <div class="stat-icon stat-icon-success">
+                            <i data-lucide="users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="stat-adherents">-</div>
+                            <div class="stat-label">Adhérents</div>
+                        </div>
+                    </div>
+    
+                    <div class="stat-card">
+                        <div class="stat-icon stat-icon-warning">
+                            <i data-lucide="bookmark"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="stat-emprunts">-</div>
+                            <div class="stat-label">Emprunts en cours</div>
+                        </div>
+                    </div>
+    
+                    <div class="stat-card">
+                        <div class="stat-icon stat-icon-danger">
+                            <i data-lucide="alert-triangle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="stat-retards">-</div>
+                            <div class="stat-label">Retards</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <!-- Section : Livre le plus emprunté + Adhérent le plus actif -->
+                <div class="dashboard-row">
+                    <!-- Livre le plus emprunté -->
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-header">
+                            <div class="dashboard-icon dashboard-icon-primary">
+                                <i data-lucide="trophy"></i>
+                            </div>
+                            <h3>Livre le plus emprunté</h3>
+                        </div>
+                        <div class="dashboard-card-body" id="top-livre">
+                            <p class="loading-text">Chargement...</p>
+                        </div>
+                    </div>
+    
+                    <!-- Adhérent le plus actif -->
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-header">
+                            <div class="dashboard-icon dashboard-icon-warning">
+                                <i data-lucide="crown"></i>
+                            </div>
+                            <h3>Adhérent le plus actif</h3>
+                        </div>
+                        <div class="dashboard-card-body" id="top-adherent">
+                            <p class="loading-text">Chargement...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        </main>
+        
+    </div>
+    
+    <!-- Scripts JavaScript -->
+    <script src="js/api.js"></script>
+    <script src="js/dashboard.js"></script>
+    
+    <!-- Initialisation des icônes Lucide -->
+    <script>
+        lucide.createIcons();
+    </script>
+    
+</body>
+</html>

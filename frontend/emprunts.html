@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des emprunts - Bibliothèque de M'pila</title>
+    
+    <!-- Polices Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icônes Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Styles CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <!-- ======================================================
+             SIDEBAR (Barre latérale de navigation)
+             ====================================================== -->
+        <aside class="sidebar">
+            
+            <!-- Logo -->
+            <div class="sidebar-logo">
+                <img src="assets/logo.png" alt="Bibliothèque de M'pila">
+            </div>
+            
+            <!-- Navigation -->
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Tableau de bord</span>
+                </a>
+                <a href="livres.html" class="nav-item">
+                    <i data-lucide="book-open"></i>
+                    <span>Livres</span>
+                </a>
+                <a href="adherents.html" class="nav-item">
+                    <i data-lucide="users"></i>
+                    <span>Adhérents</span>
+                </a>
+                <a href="emprunts.html" class="nav-item active">
+                    <i data-lucide="bookmark"></i>
+                    <span>Emprunts</span>
+                </a>
+                <a href="auteurs.html" class="nav-item">
+                    <i data-lucide="pen-tool"></i>
+                    <span>Auteurs</span>
+                </a>
+            </nav>
+            
+            <!-- Pied de la sidebar -->
+            <div class="sidebar-footer">
+                <a href="#" class="nav-item">
+                    <i data-lucide="settings"></i>
+                    <span>Paramètres</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i data-lucide="log-out"></i>
+                    <span>Déconnexion</span>
+                </a>
+            </div>
+            
+        </aside>
+        
+        <!-- ======================================================
+             CONTENU PRINCIPAL
+             ====================================================== -->
+        <main class="main-content">
+            
+            <!-- HEADER (Barre du haut) -->
+            <header class="topbar">
+                
+                <!-- Barre de recherche -->
+                <div class="search-bar">
+                    <i data-lucide="search"></i>
+                    <input type="text" placeholder="Rechercher un livre, un adhérent, un auteur...">
+                </div>
+                
+                <!-- Profil admin -->
+                <div class="user-profile">
+                    <i data-lucide="bell"></i>
+                    <div class="user-info">
+                        <div class="avatar">A</div>
+                        <div>
+                            <div class="user-name">Admin</div>
+                            <div class="user-role">Administrateur</div>
+                        </div>
+                        <i data-lucide="chevron-down"></i>
+                    </div>
+                </div>
+                
+            </header>
+            
+            <!-- CONTENU DE LA PAGE -->
+            <div class="page-content">
+                
+                <!-- En-tête de page -->
+                <div class="page-header">
+                    <div>
+                        <h1>Gestion des emprunts</h1>
+                        <p class="page-subtitle">Suivre les prêts et les retours de livres</p>
+                    </div>
+                    <button class="btn btn-primary" id="btn-nouvel-emprunt">
+                        <i data-lucide="plus"></i>
+                        Nouvel emprunt
+                    </button>
+                </div>
+                
+                <!-- Barre de filtres -->
+                <div class="tabs-bar">
+                    <button class="tab-btn active" data-tab="en-cours">
+                        <i data-lucide="clock"></i>
+                        En cours
+                    </button>
+                    <button class="tab-btn" data-tab="en-retard">
+                        <i data-lucide="alert-triangle"></i>
+                        En retard
+                    </button>
+                    <button class="tab-btn" data-tab="tous">
+                        <i data-lucide="list"></i>
+                        Tous
+                    </button>
+                </div>
+                
+                <!-- Tableau des emprunts -->
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Livre</th>
+                                <th>Adhérent</th>
+                                <th>Date d'emprunt</th>
+                                <th>Retour prévu</th>
+                                <th>Statut</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="emprunts-tbody">
+                            <tr>
+                                <td colspan="7" class="loading">Chargement des emprunts...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Pagination -->
+                <div class="pagination">
+                    <div class="pagination-info" id="pagination-info">
+                        Affichage de 0 sur 0 emprunts
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+        </main>
+        
+    </div>
+    
+    <!-- Scripts JavaScript -->
+    <script src="js/api.js"></script>
+    <script src="js/emprunts.js"></script>
+    
+    <!-- Initialisation des icônes Lucide -->
+    <script>
+        lucide.createIcons();
+    </script>
+    
+</body>
+</html>

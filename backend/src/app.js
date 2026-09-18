@@ -15,8 +15,14 @@ const PORT = process.env.PORT || 5000;
 // ======================================================
 
 // Autoriser les requêtes cross-origin (frontend → backend)
-app.use(cors());
-
+app.use(cors({
+    origin: [
+        'http://localhost:5000',
+        'http://localhost:3000',
+        'https://bibliotheque-frontend-ts8d.onrender.com'
+    ],
+    credentials: true
+}));
 // Parser le JSON dans les requêtes (POST, PUT, PATCH)
 app.use(express.json());
 

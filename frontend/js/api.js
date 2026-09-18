@@ -2,7 +2,7 @@
 // API.JS - Fonctions pour communiquer avec le backend
 // ======================================================
 
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'https://bibliotheque-app-8hci.onrender.com/api';
 
 // ======================================================
 // Fonction générique pour faire des requêtes API

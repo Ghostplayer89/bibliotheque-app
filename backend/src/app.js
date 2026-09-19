@@ -46,12 +46,14 @@ app.get('/api/health', (req, res) => {
 // ======================================================
 // ROUTES DE L'API
 // ======================================================
+const authRoutes = require('./routes/authRoutes');
 const auteurRoutes = require('./routes/auteurRoutes');
 const adherentRoutes = require('./routes/adherentRoutes');
 const livreRoutes = require('./routes/livreRoutes');
 const empruntRoutes = require('./routes/empruntRoutes');
 const statsRoutes = require('./routes/statsRoutes');
 
+app.use('/api/auth', authRoutes);
 app.use('/api/auteurs', auteurRoutes);
 app.use('/api/adherents', adherentRoutes);
 app.use('/api/livres', livreRoutes);
